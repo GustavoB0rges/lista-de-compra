@@ -1,0 +1,30 @@
+<app-header
+  class="flex"
+  [title]="title"
+  [type]="'form'"
+  [operation]="operation"
+  [saveDisabled]="form?.invalid"
+  [showFilter]="false"
+  (edit)="editProduct()"
+  (save)="saveProduct()"
+  (close)="onClose()"
+></app-header>
+
+<div class="flex flex-column items-center m-6 justify-center">
+  <form [formGroup]="form" class="mt-2 flex-column">
+    <mat-form-field appearance="fill" class="mr-2 w-full">
+      <mat-label>Id</mat-label>
+      <input matInput formControlName="id" placeholder="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="mr-2 w-full">
+      <mat-label>Produto</mat-label>
+      <input matInput formControlName="name" placeholder="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="mr-2 w-full">
+      <mat-label>Quantidade</mat-label>
+      <input matInput type="number" formControlName="qtd" placeholder="" />
+    </mat-form-field>
+  </form>
+</div>

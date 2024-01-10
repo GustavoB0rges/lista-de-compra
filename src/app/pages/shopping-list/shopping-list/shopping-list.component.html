@@ -1,0 +1,37 @@
+<app-drawer
+  [opened]="openedDrawer || openedDrawerHistoric"
+  [template]="templateForm"
+>
+  <app-header
+    [title]="title"
+    [operation]="operation"
+    [showFilter]="true"
+    (add)="addProduct()"
+    (histotic)="onHistoric()"
+    (search)="onSearchProduct($event, dataSourceBase)"
+  >
+  </app-header>
+
+  <app-table
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns"
+    (clickRow)="onClickRow($event)"
+    (deleteItem)="onDeleteItem($event)"
+  ></app-table>
+</app-drawer>
+
+<ng-template #templateForm>
+  <app-form-shopping-list
+    *ngIf="openedDrawer"
+    [list]="listEdit"
+    [operation]="operation"
+    (save)="onSaveProduct($event)"
+    (close)="onClose()"
+  ></app-form-shopping-list>
+
+  <app-historic-products
+    *ngIf="openedDrawerHistoric"
+    [dataSourceHistoric]="dataSourceHistoric"
+    (close)="onCloseHistoric()"
+  ></app-historic-products>
+</ng-template>

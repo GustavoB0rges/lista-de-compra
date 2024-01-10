@@ -1,0 +1,19 @@
+<ng-container>
+  <app-header
+    [title]="'Histórico'"
+    [type]="'form'"
+    [operation]="operation"
+    [showFilter]="true"
+    [showEdit]="false"
+    (close)="onClose()"
+    (search)="onSearchProduct($event, dataSourceBase)"
+  >
+  </app-header>
+  <div class="flex items-center m-6 justify-center">
+    <app-table
+      class="w-full"
+      [dataSource]="dataSourceHistoric"
+      [displayedColumns]="displayedColumns"
+    ></app-table>
+  </div>
+</ng-container>
