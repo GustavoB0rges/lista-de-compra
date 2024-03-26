@@ -8,6 +8,7 @@ import {
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { Operation } from 'src/app/shared/enums/operation';
+import { IList } from 'src/app/shared/interfaces/list.interface';
 
 @Component({
   selector: 'app-historic-products',
@@ -18,9 +19,9 @@ import { Operation } from 'src/app/shared/enums/operation';
 })
 export class HistoricProductsComponent {
   @Output() close = new EventEmitter();
-  @Input() dataSourceHistoric: Array<any> = [];
+  @Input() dataSourceHistoric: Array<IList> = [];
   @Input() operation = Operation.VIEW;
-  dataSourceBase: Array<any> = [];
+  dataSourceBase: Array<IList> = [];
   displayedColumns: string[] = ['id', 'dt_update', 'name', 'qtd', 'actions'];
 
   constructor() {}
@@ -40,7 +41,7 @@ export class HistoricProductsComponent {
     });
   }
 
-  onSearchProduct(searchText: any, dataSourceBase: Array<any>): void {
+  onSearchProduct(searchText: string, dataSourceBase: Array<IList>): void {
     if (!dataSourceBase.length) {
       return;
     }

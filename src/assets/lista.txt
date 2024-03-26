@@ -1,0 +1,4 @@
+1;Banana;5
+2;Pão;6
+3;Frango;1
+4;Detergente;2

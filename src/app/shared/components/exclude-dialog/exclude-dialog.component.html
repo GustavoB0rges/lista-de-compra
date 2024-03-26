@@ -1,0 +1,37 @@
+<div class="p-4 block flex-column">
+  <div class="flex flex-column justify-center">
+    <span
+      class="material-icons flex"
+      style="text-align: center; font-size: 100px; color: orange"
+    >
+      error_outline
+    </span>
+  </div>
+  <mat-dialog-content
+    class="modal-content-item py-4 flex gap-4 flex-column justify-center"
+  >
+    <div class="text-center">
+      <h2 mat-dialog-title class="items-center">
+        {{ title || "Exclusão de registro" }}
+      </h2>
+      <h5 class="mt-2 items-center">
+        {{ subtitle || "Deseja realmente excluir esse registro?" }}
+      </h5>
+    </div>
+  </mat-dialog-content>
+  <div class="items-center flex flex-row gap-4 justify-center">
+    <ng-container>
+      <button class="color-btn-cancel" mat-stroked-button (click)="onCancel()">
+        <span>Cancelar</span>
+      </button>
+      <button
+        class="color-btn-confirm"
+        mat-stroked-button
+        (click)="onSave()"
+        cdkFocusInitial
+      >
+        <span>Confirmar</span>
+      </button>
+    </ng-container>
+  </div>
+</div>

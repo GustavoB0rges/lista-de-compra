@@ -1,0 +1,54 @@
+* {
+  .mat-icon {
+    margin: 0 !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+.header-default {
+  height: 80px;
+  justify-content: space-between;
+
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+
+  mat-toolbar-row {
+    align-items: center;
+  }
+
+  form {
+    margin-top: 0.5rem;
+  }
+
+  .mat-form-field {
+    width: 200px;
+  }
+
+  button {
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      margin-top: 1rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      margin-left: 0;
+    }
+  }
+}
+
+button {
+  border-radius: 18px !important;
+  height: 15px;
+}

@@ -1,0 +1,106 @@
+<ng-container *ngIf="type === 'default'; else form">
+  <mat-toolbar class="header-default">
+    <mat-toolbar-row class="justify-between">
+      <div>{{ title }}</div>
+
+      <form
+        [formGroup]="formFilter"
+        class="mt-4 flex items-center justify-center"
+      >
+        <div class="relative">
+          <input
+            matInput
+            formControlName="filter"
+            placeholder="Pesquisar"
+            class="px-4 py-2 text-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500"
+          />
+          <mat-icon
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-600"
+          >
+            search
+          </mat-icon>
+        </div>
+      </form>
+
+      <div class="flex">
+        <button
+          *ngIf="operation === 'INDEX'"
+          class="mr-2"
+          mat-stroked-button
+          (click)="onHistoric()"
+        >
+          Histórico
+        </button>
+
+        <button
+          *ngIf="operation === 'INDEX'"
+          class="mr-2"
+          mat-stroked-button
+          (click)="onAdd()"
+        >
+          Adicionar
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-container>
+
+<ng-template #form>
+  <mat-toolbar>
+    <mat-toolbar-row class="justify-between text-center">
+      <div>{{ title }}</div>
+
+      <form
+        *ngIf="showFilter"
+        [formGroup]="formFilter"
+        class="m-4 flex items-center justify-center"
+      >
+        <div class="relative">
+          <input
+            matInput
+            formControlName="filter"
+            placeholder="Pesquisar"
+            class="px-4 py-2 text-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500"
+          />
+          <mat-icon
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-600"
+          >
+            search
+          </mat-icon>
+        </div>
+      </form>
+
+      <div class="flex-row justify-center" style="border: none !important">
+        <button
+          *ngIf="operation === 'VIEW' && showEdit"
+          mat-stroked-button
+          matTooltip="Editar"
+          (click)="onEdit()"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button
+          *ngIf="operation == 'NEW' || operation == 'EDIT'"
+          mat-stroked-button
+          matTooltip="Salvar"
+          (click)="onSave()"
+          [disabled]="saveDisabled"
+          class="ml-2"
+        >
+          <mat-icon>save</mat-icon>
+        </button>
+
+        <button
+          *ngIf="operation !== 'INDEX'"
+          mat-stroked-button
+          matTooltip="Fechar"
+          (click)="onClose()"
+          class="ml-2"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-template>

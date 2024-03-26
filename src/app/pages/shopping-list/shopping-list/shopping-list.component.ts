@@ -44,12 +44,12 @@ export class ShoppingListComponent implements OnDestroy {
   listEdit: IList;
   formFilter: FormGroup;
 
-  dataSource: Array<any> = [];
-  dataSourceBase: Array<any> = [];
+  dataSource: Array<IList> = [];
+  dataSourceBase: Array<IList> = [];
   displayedColumns: string[] = ['id', 'name', 'qtd', 'actions'];
 
   openedDrawerHistoric = false;
-  dataSourceHistoric: Array<any> = [];
+  dataSourceHistoric: Array<IList> = [];
 
   destroy$ = new Subject<void>();
 
@@ -112,7 +112,7 @@ export class ShoppingListComponent implements OnDestroy {
       });
   }
 
-  onSearchProduct(searchText: string, dataSourceBase: Array<any>): void {
+  onSearchProduct(searchText: string, dataSourceBase: Array<IList>): void {
     if (!dataSourceBase.length) {
       return;
     }

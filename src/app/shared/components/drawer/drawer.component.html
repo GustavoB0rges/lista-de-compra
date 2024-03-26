@@ -1,0 +1,19 @@
+<mat-drawer-container>
+  <mat-drawer
+    #drawer
+    class="full-width"
+    [mode]="mode"
+    [opened]="opened"
+    [position]="'end'"
+    [disableClose]="true"
+  >
+    <div class="flex" fxLayout="column" class="overflow-auto">
+      <ng-container
+        *ngIf="template"
+        [ngTemplateOutlet]="template"
+      ></ng-container>
+    </div>
+  </mat-drawer>
+
+  <ng-content></ng-content>
+</mat-drawer-container>
